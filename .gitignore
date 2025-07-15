@@ -1,0 +1,40 @@
+# ===========================================
+# Frostbyte 🧊🐧 | .gitignore
+# ===========================================
+
+# Compiled output
+/target/
+
+# Rust package manager backups
+**/*.rs.bk
+
+# IDE/editor folders
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Node & Cargo package lock files (safe default)
+/Cargo.lock
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Environment files — NEVER commit secrets!
+.env
+.env.*
+
+# Logs
+*.log
+
+# Optional build artifacts or local data
+*.tmp
+*.temp
+
+# OS-specific
+ehthumbs.db
+Desktop.ini
+
+# By default: keep your ABI and source files tracked!
+# /abis/AbstractSwapRouter.json should NOT be ignored
