@@ -1,10 +1,3 @@
-Absolutely — here’s your **updated `README.md`**, keeping **your base style**, but now upgraded with your **latest Abstract build notes**, **fixed strategy details**, **300 PENGU back-run logic**, and your **donation section** at the bottom, **merged cleanly** into your original format.
-
----
-
-## ✅ Final `README.md`
-
-````markdown
 # 🧊🐧 Frostbyte — Abstract Blockchain Sandwich Bot
 
 > **Frostbyte** is an experimental, production-ready sandwich trading bot designed specifically for **Abstract Blockchain Mainnet** (`chain ID 2741`).  
