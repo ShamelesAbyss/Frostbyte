@@ -1,6 +1,13 @@
+Absolutely — here’s your **updated `README.md`**, keeping **your base style**, but now upgraded with your **latest Abstract build notes**, **fixed strategy details**, **300 PENGU back-run logic**, and your **donation section** at the bottom, **merged cleanly** into your original format.
+
+---
+
+## ✅ Final `README.md`
+
+````markdown
 # 🧊🐧 Frostbyte — Abstract Blockchain Sandwich Bot
 
-> **Frostbyte** is an experimental, production-ready sandwich trading bot designed specifically for **Abstract Blockchain Mainnet** (chain ID `2741`).  
+> **Frostbyte** is an experimental, production-ready sandwich trading bot designed specifically for **Abstract Blockchain Mainnet** (`chain ID 2741`).  
 > It scans the mempool for profitable opportunities to front-run and back-run transactions on the **$PENGU token**, automatically simulates profitability, and safely executes **ETH ➜ PENGU ➜ ETH** cycles — all on-chain.
 
 ---
@@ -9,8 +16,9 @@
 
 ✅ Runs live on **Abstract Blockchain Mainnet** — not testnet  
 ✅ Fully automated mempool watching & real-time profit simulation  
-✅ Dynamic balance management — only uses available ETH, auto-reserves gas buffer  
-✅ Unlimited PENGU `approve` — back-run swaps succeed every time  
+✅ Dynamic ETH balance management — front-run uses **50% of your live ETH balance**, reserves gas buffer  
+✅ Fixed **300 PENGU** back-run size for more consistent ETH flips  
+✅ One-time `approve()` for unlimited PENGU ➜ ETH swaps  
 ✅ Safe `Ctrl+C` shutdown — no stuck states, no unexpected errors  
 ✅ Fully open-source — your keys, your wallet, your profit!
 
@@ -95,6 +103,7 @@ Frostbyte_PublicBranch/
      ├── mempool_watcher.rs
      ├── profit_simulator.rs
      ├── tx_builder.rs
+     ├── router.rs
 ```
 
 ✅ Everything you need is included — no extra ABI downloads required.
@@ -118,18 +127,18 @@ cargo run --release
 ✅ If everything’s working, you’ll see:
 
 ```
-Frostbyte 🧊🐧 Frostbyte v1.0 🧊🐧 — Start
+Frostbyte 🧊🐧 Frostbyte v1.1 🧊🐧 — Start
 Wallet: 0xYourWalletAddress
 Heartbeat…
 MempoolWatcher watching: 0xYourPenguPairAddress
 Wallet balance: 0.005 ETH
 Sim: Profit = ...
 Profitable! Executing runs…
-Front tx: 0x...
-Back tx: 0x...
+Front-run hash: 0x...
+Back-run hash: 0x...
 ```
 
-✅ **Stop anytime** with `Ctrl+C` — Frostbyte shuts down gracefully.
+✅ **Stop anytime** with `Ctrl+C` — Frostbyte shuts down gracefully with no orphan tasks.
 
 ---
 
@@ -138,7 +147,7 @@ Back tx: 0x...
 Before your back-run can work, you **must approve** your router once:
 
 ```
-PENGU.approve("0xROUTER_CONTRACT_ADDRESS", MAX_UINT256)
+PENGU.approve("0xYOUR_ROUTER_ADDRESS", MAX_UINT256)
 ```
 
 You can do this on Abstract’s block explorer, Metamask, or using `ethers.js`.
@@ -146,13 +155,13 @@ This only needs to be done once per wallet.
 
 ---
 
-## 💡 Safety Tips
+## 💡 How It Works
 
-✅ Use a **fresh wallet** with limited funds for testing.
-✅ Never run Frostbyte with your entire balance.
-✅ Always monitor your mempool traffic and profit thresholds.
-✅ Understand **sandwich attacks** — they are aggressive strategies.
-✅ Research Abstract Blockchain’s liquidity and router behavior.
+✅ Mempool is scanned in real-time for target swaps.
+✅ Profit is simulated using your actual on-chain liquidity.
+✅ **Front-run** uses **50%** of your available ETH balance — dynamic sizing.
+✅ **Back-run** always trades a **fixed 300 PENGU ➜ ETH** for consistent unwinds.
+✅ `tokio::select!` pattern ensures your shutdown is graceful.
 
 ---
 
@@ -179,13 +188,20 @@ This bot does not guarantee profit and is intended for research and educational 
 
 ---
 
-## 🌟 Show Your Support
+## 💚 Donate (Optional)
 
-If you find Frostbyte useful:
-⭐ Star the repo
-🐧 Share your PRs, feedback, and ideas!
-🍕 Buy me a coffee!
+If you appreciate Frostbyte, feel free to tip the dev!
+
+**ETH:** `0x22ee052B04496d554852EA6762b3Ad98b2CF7860`
+
+**SOL:** `5bgLMbDANsQnrs57RZtdJftkiTiyZd9gfKNseAQQHS3u`
+
+**Sui:** `0xadc6d1dfb6152ac51cc61a4678c497f22acbf34d2a5167b24ddb688895176736`
+
+**BTC:** `bc1qwv4ata5ygfawj2rtl6l4ggts645nee2whtcg0c`
 
 ---
 
 ## 🧊🐧 Stay frosty — and sandwich wisely!
+
+```
